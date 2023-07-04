@@ -19,6 +19,30 @@
             box-sizing: border-box;
         }
 
+        nav {
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: 10px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: black;
+        }
+
+        button {
+            background-color: #4CAF50;
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+        }
+
         #slideshow {
             position: relative;
             height: calc(100% - 100px);
@@ -59,6 +83,14 @@
 <body>
     <header>
         <h1>湾址喜来健</h1>
+        <nav>
+            <a href="#">首页</a>
+            <a href="#">产品中心</a>
+            <a href="#">新闻中心</a>
+            <a href="#">加入我们</a>
+            <a href="#">关于我们</a>
+            <button>申请家庭体验</button>
+        </nav>
     </header>
 
     <div id="slideshow">
