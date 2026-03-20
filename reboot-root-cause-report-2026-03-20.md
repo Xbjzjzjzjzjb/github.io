@@ -178,3 +178,41 @@ Current call:
 - Windows storage reliability counters
 - `fsutil fsinfo volumeinfo E:`
 - `Repair-Volume -DriveLetter E -Scan`
+
+## Irreversible Damage Assessment
+
+There is no conclusive proof that any component has already suffered irreversible physical damage.
+
+What is conclusively established:
+
+- Repeated `WHEA-Logger` Event ID `17` entries hit the same PCIe root port feeding the `WD Green SN350` path.
+- The unexpected reboot on 2026-03-20 was preceded by another error on that same path.
+- This is consistent with a real hardware-path fault, not a normal software restart.
+
+What is not conclusively established:
+
+- That the `WD Green SN350` NAND/controller is permanently damaged.
+- That the motherboard M.2 slot is permanently damaged.
+- That the PCIe root port itself is permanently damaged.
+
+Operational conclusion:
+
+- There is strong evidence of a genuine hardware issue.
+- There is not yet hard proof of irreversible damage.
+- The machine should be treated as unstable until the SN350 path is isolated or repaired.
+
+## Warranty / Repair Recommendation
+
+Recommended guidance:
+
+- If the machine is still under warranty, report it for hardware inspection.
+- If it is out of warranty, back up `E:` first, then perform one reseat / slot-swap isolation test.
+- If the same `WHEA 17` pattern repeats after reseat or after moving the drive, replace the `WD Green SN350` or service the affected slot/mainboard path.
+
+Suggested service summary:
+
+- Multiple unexpected reboots occurred.
+- Windows logs repeatedly show `WHEA-Logger Event 17`.
+- The fault consistently points to a `PCI Express Root Port` feeding the secondary NVMe path.
+- The downstream path maps to the `WD Green SN350 500GB` on `E:`.
+- This does not look like a standard software or update-triggered restart.
